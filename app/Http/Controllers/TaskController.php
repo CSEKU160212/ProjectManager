@@ -31,7 +31,8 @@ class TaskController extends Controller
 
     /**
      * Display a listing of the completed tasks of a project
-     *@param Project $project
+     *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function index_project_completed(Project $project)
@@ -41,7 +42,8 @@ class TaskController extends Controller
 
     /**
      * Display a listing of the ongoing Tasks of a project
-     *@param Project $project
+     *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function index_project_ongoing(Project $project)
@@ -64,7 +66,8 @@ class TaskController extends Controller
 
     /**
      * Display a listing of cancelled tasks of a project
-     *@param Project $project
+     *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function index_project_canceled(Project $project)
