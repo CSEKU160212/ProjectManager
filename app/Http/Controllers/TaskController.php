@@ -75,7 +75,7 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function completed()
+    public function index_completed()
     {
         //
     }
@@ -86,7 +86,7 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ongoing()
+    public function index_ongoing()
     {
         //
     }
@@ -97,7 +97,7 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function pending()
+    public function index_pending()
     {
         //
     }
@@ -107,7 +107,7 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function canceled()
+    public function index_canceled()
     {
         //
     }

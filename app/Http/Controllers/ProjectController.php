@@ -52,7 +52,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function canceled()
+    public function index_canceled()
     {
         //
     }
