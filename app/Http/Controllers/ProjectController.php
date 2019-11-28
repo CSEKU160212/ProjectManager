@@ -18,6 +18,47 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display a listing of completed Projects
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_completed()
+    {
+        //
+    }
+
+    /**
+     *  Diplay a listing of ongoing projects
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_onging()
+    {
+        //
+    }
+
+    /**
+     * Display a listing of pending projects
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_pending()
+    {
+        //
+    }
+
+    /**
+     * Diplay a listing of cancelled projects
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function canceled()
+    {
+        //
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

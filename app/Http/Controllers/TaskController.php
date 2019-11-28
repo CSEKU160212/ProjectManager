@@ -18,6 +18,101 @@ class TaskController extends Controller
     }
 
     /**
+     * Diplay a listing of the tasks of a project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_project()
+    {
+        //
+    }
+
+    /**
+     * Display a listing of the completed tasks of a project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_project_completed()
+    {
+        //
+    }
+
+    /**
+     * Display a listing of the ongoing Tasks of a project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_project_ongoing()
+    {
+        //
+    }
+
+
+    /**
+     * Diplay a listing of the pending tasks of a project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_project_pending()
+    {
+        //
+    }
+
+
+    /**
+     * Display a listing of cancelled tasks of a project
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_project_canceled()
+    {
+        //
+    }
+
+
+    /**
+     * Display a listing of completed tasks
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function completed()
+    {
+        //
+    }
+
+
+    /**
+     * Display a listing of ongoing tasks
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ongoing()
+    {
+        //
+    }
+
+
+    /**
+     * Display a listing of pending tasks
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pending()
+    {
+        //
+    }
+
+     /**
+     * Display a listing of canceled tasks
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function canceled()
+    {
+        //
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
