@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -20,29 +21,30 @@ class TaskController extends Controller
     /**
      * Diplay a listing of the tasks of a project
      *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index_project()
+    public function index_project(Project $project)
     {
         //
     }
 
     /**
      * Display a listing of the completed tasks of a project
-     *
+     *@param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index_project_completed()
+    public function index_project_completed(Project $project)
     {
         //
     }
 
     /**
      * Display a listing of the ongoing Tasks of a project
-     *
+     *@param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index_project_ongoing()
+    public function index_project_ongoing(Project $project)
     {
         //
     }
@@ -51,9 +53,10 @@ class TaskController extends Controller
     /**
      * Diplay a listing of the pending tasks of a project
      *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index_project_pending()
+    public function index_project_pending(Project $project)
     {
         //
     }
@@ -61,10 +64,10 @@ class TaskController extends Controller
 
     /**
      * Display a listing of cancelled tasks of a project
-     *
+     *@param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index_project_canceled()
+    public function index_project_canceled(Project $project)
     {
         //
     }
