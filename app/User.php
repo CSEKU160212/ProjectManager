@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'status', 'is_admin'
     ];
 
     /**
@@ -28,12 +28,44 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
-     * The attributes that should be cast to native types.
+     * Projects creator
      *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function projectCreators()
+    {
+        return $this->hasMany('App\Models\Project');
+    }
+
+    /**
+     * Projects that User working
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function projects()
+    {
+        return $this->belongsToMany('App\Models\Project');
+    }
+
+    /**
+     * user takes many tasks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function taken_tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+
+    /**
+     * user completed tasks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function completed_tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 }
