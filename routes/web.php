@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Project Routes
  */
 Route::get('/projects', 'ProejctController@index')->name('projects.index');
+Route::get('/projects/completed', 'ProjectController@index_completed')->name('projects.index.completed');
+Route::get('/projects/ongoing', 'ProjectController@index_ongoing')->name('projects.index.ongoing');
+Route::get('/projects/pending', 'ProjectController@index_pending')->name('projects.index.pending');
 Route::get('/projects/create', 'ProjectController@create')->name('projects.create');
 Route::post('/projects', 'ProjectController@store')->name('projects.store');
 Route::get('/projects/{project}/show', 'ProjectController@show')->name('projects.show');
@@ -35,19 +38,26 @@ Rouet::delete('/projects/{project}/delete', 'ProjectController@destroy')->name('
  * Task Routes
  */
 
- Route::get('tasks', 'TaskController@index')->name('tasks.index');
- Route::get('tasks/create', 'TaskController@create')->name('tasks.create');
- Route::post('tasks', 'TaskController@store')->name('tasks.store');
- Route::get('tasks/{task}/show', 'TaskController@show')->name('tasks.show');
- Route::get('tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
- Route::put('tasks/{task}/update', 'TaskController@update')->name('tasks.update');
+ Route::get('/tasks', 'TaskController@index')->name('tasks.index');
+ Route::get('/tasks/{project}/index', 'TaskController@index_project')->name('tasks.index.project');
+ Route::get('/tasks/{project}/completed', 'TaskController@index_completed')->name('tasks.index.completed');
+ Route::get('tasks/{project}/onging', 'TaskController@index_ongoing')->name('tasks.index.ongoing');
+ Route::get('/tasks/{project}/pending', 'TaskController@index_pending')->name('tasks.index.pending');
+ Route::get('/tasks/completed', 'TaskController@completed')->name('tasks.completed');
+ Route::get('/tasks/ongoing', 'TaskController@ongoing')->name('tasks.ongoing');
+ Route::get('/tasks/pending', 'TaskController@pending')->name('task.pending');
+ Route::get('/tasks/{project}/create', 'TaskController@create')->name('tasks.create');
+ Route::post('/tasks/{project}', 'TaskController@store')->name('tasks.store');
+ Route::get('/tasks/{task}/show', 'TaskController@show')->name('tasks.show');
+ Route::get('/tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
+ Route::put('/tasks/{task}/update', 'TaskController@update')->name('tasks.update');
  Route::delete('/tasks/{task}/delete', 'TaskController@delete')->name('tasks.delete');
 
 /**
  * Company Routes
  */
 
- Route::get('companies', 'CompanyController@index')->name('companies.index');
+ Route::get('/companies', 'CompanyController@index')->name('companies.index');
  Route::get('/companies/show', 'CompanyController@show')->name('companies.show');
  Route::get('/companies/edit', 'CompanyController@edit')->name('companies.edit');
  Route::put('companies/update', 'CompanyController@update')->name('companies.update');
