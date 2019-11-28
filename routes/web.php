@@ -40,12 +40,12 @@ Rouet::delete('/projects/{project}/delete', 'ProjectController@destroy')->name('
 
  Route::get('/tasks', 'TaskController@index')->name('tasks.index');
  Route::get('/tasks/{project}/index', 'TaskController@index_project')->name('tasks.index.project');
- Route::get('/tasks/{project}/completed', 'TaskController@index_completed')->name('tasks.index.completed');
- Route::get('tasks/{project}/onging', 'TaskController@index_ongoing')->name('tasks.index.ongoing');
- Route::get('/tasks/{project}/pending', 'TaskController@index_pending')->name('tasks.index.pending');
+ Route::get('/tasks/{project}/completed', 'TaskController@index_project_completed')->name('tasks.index.project.completed');
+ Route::get('tasks/{project}/onging', 'TaskController@index_project_ongoing')->name('tasks.index.project.ongoing');
+ Route::get('/tasks/{project}/pending', 'TaskController@index_project_pending')->name('tasks.index.project.pending');
  Route::get('/tasks/completed', 'TaskController@completed')->name('tasks.completed');
  Route::get('/tasks/ongoing', 'TaskController@ongoing')->name('tasks.ongoing');
- Route::get('/tasks/pending', 'TaskController@pending')->name('task.pending');
+ Route::get('/tasks/pending', 'TaskController@pending')->name('tasks.pending');
  Route::get('/tasks/{project}/create', 'TaskController@create')->name('tasks.create');
  Route::post('/tasks/{project}', 'TaskController@store')->name('tasks.store');
  Route::get('/tasks/{task}/show', 'TaskController@show')->name('tasks.show');
@@ -57,7 +57,6 @@ Rouet::delete('/projects/{project}/delete', 'ProjectController@destroy')->name('
  * Company Routes
  */
 
- Route::get('/companies', 'CompanyController@index')->name('companies.index');
  Route::get('/companies/show', 'CompanyController@show')->name('companies.show');
  Route::get('/companies/edit', 'CompanyController@edit')->name('companies.edit');
  Route::put('companies/update', 'CompanyController@update')->name('companies.update');
