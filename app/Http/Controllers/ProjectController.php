@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
     /**
+     * ProjectController Constructor
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth')->except('index');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+        return view('projects.index', compact('projects'));
+        //return response()->json(['projects'=>$projects], 200);
     }
 
     /**
@@ -65,7 +75,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -76,7 +86,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validation($request);
+
+        $project = new Project($request->all());
+
+        $project->status = config('constants.project_status.pending');
+        $project->user_id = auth()->id();
+
+        if($project->save()){
+            return redirect()->route('projects.show', $project->id);
+        }else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -87,7 +108,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -98,7 +119,14 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        if(auth()->id() == $project->user_id)
+        {
+            return view('projects.edit', compact('project'));
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -110,7 +138,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $this->validation($request);
+        if($project->update($request->all()))
+        {
+            return view('projects.show', compact('project'));
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -122,5 +158,19 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    /**
+     * Validation for Project Controller
+     *
+     * @param Request $request
+     * @return string|null
+     */
+    protected function validation(Request $request)
+    {
+        return $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string'
+        ]);
     }
 }

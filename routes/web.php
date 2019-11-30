@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 /**
  * Project Routes
  */
-Route::get('/projects', 'ProejctController@index')->name('projects.index');
+Route::get('/projects', 'ProjectController@index')->name('projects.index');
 Route::get('/projects/completed', 'ProjectController@index_completed')->name('projects.index.completed');
 Route::get('/projects/ongoing', 'ProjectController@index_ongoing')->name('projects.index.ongoing');
 Route::get('/projects/pending', 'ProjectController@index_pending')->name('projects.index.pending');
@@ -32,7 +32,7 @@ Route::post('/projects', 'ProjectController@store')->name('projects.store');
 Route::get('/projects/{project}/show', 'ProjectController@show')->name('projects.show');
 Route::get('/projects/{project}/edit', 'ProjectController@edit')->name('projects.edit');
 Route::put('/projects/{project}/update', 'ProjectController@update')->name('projects.update');
-Rouet::delete('/projects/{project}/delete', 'ProjectController@destroy')->name('projects.delete');
+Route::delete('/projects/{project}/delete', 'ProjectController@destroy')->name('projects.delete');
 
 
 /**
